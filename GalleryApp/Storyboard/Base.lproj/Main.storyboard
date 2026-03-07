@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loginBtn">
+                                <rect key="frame" x="46" y="401" width="301" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="btnHeight"/>
+                                </constraints>
+                                <state key="normal" title="Sign in with Google"/>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="actionLogin"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="loginBtn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="centerY1"/>
+                            <constraint firstItem="loginBtn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="leading1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="loginBtn" secondAttribute="trailing" constant="46" id="trailing1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="loginBtn" id="outletLoginBtn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131" y="-27"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="tabBarScene">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBarController" id="tabBarController" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tabBar">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="galleryNav" kind="relationship" relationship="viewControllers" id="relGallery"/>
+                        <segue destination="profileNav" kind="relationship" relationship="viewControllers" id="relProfile"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tabBarResponder" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="-27"/>
+        </scene>
+        <!--Gallery-->
+        <scene sceneID="galleryNavScene">
+            <objects>
+                <navigationController id="galleryNav" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Gallery" image="gallery_icon" id="galleryTabItem"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="galleryNavBar">
+                        <rect key="frame" x="0.0" y="118" width="393" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="galleryVC" kind="relationship" relationship="rootViewController" id="relGalleryRoot"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="galleryNavResponder" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1700" y="-300"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="profileNavScene">
+            <objects>
+                <navigationController id="profileNav" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile_icon" id="profileTabItem"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="profileNavBar">
+                        <rect key="frame" x="0.0" y="118" width="393" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="profileVC" kind="relationship" relationship="rootViewController" id="relProfileRoot"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="profileNavResponder" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1700" y="500"/>
+        </scene>
+        <!--Gallery-->
+        <scene sceneID="galleryScene">
+            <objects>
+                <viewController storyboardIdentifier="GalleryViewController" id="galleryVC" customClass="GalleryViewController" customModule="GalleryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="galleryView">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="collectionView">
+                                <rect key="frame" x="0.0" y="172" width="393" height="563"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="flowLayout">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="galleryVC" id="4yh-o3-LjY"/>
+                                    <outlet property="delegate" destination="galleryVC" id="V8V-hX-bYA"/>
+                                </connections>
+                            </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="loadingIndicator">
+                                <rect key="frame" x="178" y="678" width="37" height="37"/>
+                                <color key="color" systemColor="systemBlueColor"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="safeGallery"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="safeGallery" firstAttribute="bottom" secondItem="collectionView" secondAttribute="bottom" id="bottomCol"/>
+                            <constraint firstItem="safeGallery" firstAttribute="bottom" secondItem="loadingIndicator" secondAttribute="bottom" constant="20" id="bottomLoader"/>
+                            <constraint firstItem="loadingIndicator" firstAttribute="centerX" secondItem="galleryView" secondAttribute="centerX" id="centerXLoader"/>
+                            <constraint firstItem="collectionView" firstAttribute="leading" secondItem="safeGallery" secondAttribute="leading" id="leadCol"/>
+                            <constraint firstItem="collectionView" firstAttribute="top" secondItem="safeGallery" secondAttribute="top" id="topCol"/>
+                            <constraint firstItem="safeGallery" firstAttribute="trailing" secondItem="collectionView" secondAttribute="trailing" id="trailCol"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Gallery" id="navGalleryItem"/>
+                    <connections>
+                        <outlet property="collectionView" destination="collectionView" id="outletCol"/>
+                        <outlet property="loadingIndicator" destination="loadingIndicator" id="outletLoaderView"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="galleryResponder" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2500" y="-300"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="profileScene">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="profileVC" customClass="ProfileViewController" customModule="GalleryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="profileView">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nameLbl">
+                                <rect key="frame" x="20" y="269" width="353" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emailLbl">
+                                <rect key="frame" x="20" y="318" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="logoutBtn">
+                                <rect key="frame" x="46" y="389" width="301" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="heightLogoutBtn"/>
+                                </constraints>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="profileVC" eventType="touchUpInside" id="actionLogout"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="safeProfile"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="emailLbl" firstAttribute="leading" secondItem="safeProfile" secondAttribute="leading" constant="20" id="leadEmail"/>
+                            <constraint firstItem="logoutBtn" firstAttribute="leading" secondItem="safeProfile" secondAttribute="leading" constant="46" id="leadLogoutBtn"/>
+                            <constraint firstItem="nameLbl" firstAttribute="leading" secondItem="safeProfile" secondAttribute="leading" constant="20" id="leadName"/>
+                            <constraint firstItem="emailLbl" firstAttribute="top" secondItem="nameLbl" secondAttribute="bottom" constant="20" id="topEmail"/>
+                            <constraint firstItem="logoutBtn" firstAttribute="top" secondItem="emailLbl" secondAttribute="bottom" constant="50" id="topLogoutBtn"/>
+                            <constraint firstItem="nameLbl" firstAttribute="top" secondItem="safeProfile" secondAttribute="top" constant="97" id="topName"/>
+                            <constraint firstItem="safeProfile" firstAttribute="trailing" secondItem="emailLbl" secondAttribute="trailing" constant="20" id="trailEmail"/>
+                            <constraint firstItem="safeProfile" firstAttribute="trailing" secondItem="logoutBtn" secondAttribute="trailing" constant="46" id="trailLogoutBtn"/>
+                            <constraint firstItem="safeProfile" firstAttribute="trailing" secondItem="nameLbl" secondAttribute="trailing" constant="20" id="trailName"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="navProfileItem"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="emailLbl" id="outletEmail"/>
+                        <outlet property="logoutButton" destination="logoutBtn" id="outletLogoutBtn"/>
+                        <outlet property="nameLabel" destination="nameLbl" id="outletName"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="profileResponder" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2500" y="500"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gallery_icon" width="25" height="25"/>
+        <image name="profile_icon" width="25" height="25"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
