@@ -8,9 +8,11 @@
 import Foundation
 
 class APIManager {
+    // MARK: - Singleton
     static let shared = APIManager()
     private init() {}
     
+    // MARK: - Network Request
     func fetchPhotos(page: Int, limit: Int = 20, completion: @escaping (Result<[Photo], Error>) -> Void) {
         let urlString = "https://picsum.photos/v2/list?page=\(page)&limit=\(limit)"
         guard let url = URL(string: urlString) else {

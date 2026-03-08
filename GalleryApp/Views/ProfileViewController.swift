@@ -10,12 +10,15 @@ import SDWebImage
 
 class ProfileViewController: UIViewController {
 
+    // MARK: - Outlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var logoutButton: UIButton!
     
+    // MARK: - Properties
     var viewModel = ProfileViewModel()
     
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -23,6 +26,7 @@ class ProfileViewController: UIViewController {
         updateViewState()
     }
     
+    // MARK: - Private Methods
     private func setupUI() {
         title = "Profile"
         view.backgroundColor = .systemBackground
@@ -72,6 +76,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    // MARK: - Actions
     @IBAction func logoutButtonTapped(_ sender: Any) {
         if viewModel.isLoggedIn {
             viewModel.logout()

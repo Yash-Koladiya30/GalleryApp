@@ -11,8 +11,10 @@ import GoogleSignIn
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: - Properties
     var window: UIWindow?
 
+    // MARK: - App Lifecycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -35,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    // MARK: - URL Handling
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         return GIDSignIn.sharedInstance.handle(url)
     }
@@ -43,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CoreDataManager.shared.saveContext()
     }
     
+    // MARK: - Navigation Navigation
     func showMainTabBar(selectedIndex: Int) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let tabBarVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController {

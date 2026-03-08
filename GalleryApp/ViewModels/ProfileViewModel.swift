@@ -11,13 +11,16 @@ import UIKit
 
 class ProfileViewModel {
     
+    // MARK: - Callbacks
     var onAuthStateChanged: (() -> Void)?
     var onError: ((String) -> Void)?
     
+    // MARK: - Properties
     var isLoggedIn: Bool {
         return GIDSignIn.sharedInstance.currentUser != nil
     }
     
+    // MARK: - Profile Details
     func getUserEmail() -> String {
         return GIDSignIn.sharedInstance.currentUser?.profile?.email ?? "No Email found"
     }
@@ -34,6 +37,7 @@ class ProfileViewModel {
         return user.profile?.imageURL(withDimension: UInt(dimension))
     }
     
+    // MARK: - Authentication Methods
     func googleSignIn(presenting viewController: UIViewController) {
         GIDSignIn.sharedInstance.signIn(withPresenting: viewController) { [weak self] signInResult, error in
             if let error = error {

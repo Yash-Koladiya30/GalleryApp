@@ -9,10 +9,12 @@ import UIKit
 import CoreData
 
 class CoreDataManager {
+    // MARK: - Singleton
     static let shared = CoreDataManager()
     
     private init() {}
     
+    // MARK: - Core Data Stack
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "GalleryApp")
         
@@ -33,6 +35,7 @@ class CoreDataManager {
         return container
     }()
     
+    // MARK: - Context Operations
     var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
@@ -48,6 +51,7 @@ class CoreDataManager {
         }
     }
     
+    // MARK: - CRUD Operations
     func savePhoto(id: String, author: String, data: Data) {
         DispatchQueue.main.async {
             let fetchRequest: NSFetchRequest<SavedPhoto> = NSFetchRequest(entityName: "SavedPhoto")

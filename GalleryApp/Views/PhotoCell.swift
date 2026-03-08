@@ -11,11 +11,14 @@ import CoreData
 
 class PhotoCell: UICollectionViewCell {
     
+    // MARK: - Outlets
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    // MARK: - Properties
     private var currentPhotoId: String?
     
+    // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         photoImageView.layer.cornerRadius = 8
@@ -26,6 +29,7 @@ class PhotoCell: UICollectionViewCell {
         photoImageView.sd_imageIndicator = SDWebImageActivityIndicator.medium
     }
     
+    // MARK: - Configuration
     func configureOnline(with photo: Photo) {
         titleLabel.text = photo.author
         currentPhotoId = photo.id
@@ -66,6 +70,7 @@ class PhotoCell: UICollectionViewCell {
         }
     }
     
+    // MARK: - Reuse
     override func prepareForReuse() {
         super.prepareForReuse()
         photoImageView.image = nil

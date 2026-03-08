@@ -11,18 +11,22 @@ import SDWebImage
 
 class GalleryViewModel {
     
+    // MARK: - Properties
     var photos: [Photo] = []
     var savedPhotos: [SavedPhoto] = []
     var currentPage = 1
     var isLoading = false
     
+    // MARK: - Callbacks
     var reloadData: (() -> Void)?
     var showError: ((String) -> Void)?
     var onLoadingStatusChanged: ((Bool) -> Void)?
     
+    // MARK: - Network Status
     private let monitor = NWPathMonitor()
     var isOffline = false
     
+    // MARK: - Initialization
     init() {
         startNetworkMonitoring()
     }
@@ -40,6 +44,7 @@ class GalleryViewModel {
         monitor.start(queue: DispatchQueue(label: "NetworkMonitor"))
     }
     
+    // MARK: - Data Fetching
     func fetchData() {
         currentPage = 1
         photos.removeAll()
@@ -124,6 +129,7 @@ class GalleryViewModel {
         }
     }
     
+    // MARK: - Helpers
     func getPhotosCount() -> Int {
         return isOffline ? savedPhotos.count : photos.count
     }
