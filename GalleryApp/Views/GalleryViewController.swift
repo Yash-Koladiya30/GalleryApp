@@ -11,6 +11,7 @@ import GoogleSignIn
 
 class GalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    // MARK: - Outlets & Properties
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
@@ -27,6 +28,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     var viewModel = GalleryViewModel()
     
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -56,6 +58,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     
+    // MARK: - Private Methods
     func setupUI() {
         title = "Gallery"
         view.backgroundColor = .systemBackground
